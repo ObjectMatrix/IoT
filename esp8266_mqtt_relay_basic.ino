@@ -66,7 +66,7 @@ void callback(char* topic, byte * payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-  client.publish("Home/esp32_sub", (char *)payload);
+  client.publish(MQTT_PUB, (char *)payload);
 
   // Switch on the LED if an 1 was received as first character
   switch ((char)payload[0] - 48)
